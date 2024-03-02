@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Justice League </title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Days+One&family=Krona+One&family=Teko&display=swap" rel="stylesheet">
+    <style>
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: white;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="first_c">
+
+        <img class="img" src="~/Content/Images/jla.jpg" alt="" width="100%">
+        <img class="cent" src="~/Content/Images/logo12.png" alt="">
+        <div class="row">
+            <div class="col-md-12"><button class="btn btn-danger cent">@Html.ActionLink("Customer Login", "Login", "CustomerLogOn")</button></div>
+            <div class="col-md-12">
+                <p>dfjb</p>
+            </div>
+
+            <div class="col-md-12"> <button class="btn btn-danger cent">@Html.ActionLink("Admin Login","Login","AdminLogOn")</button></div>
+
+        </div>
+        
+       
+
+        <img class="intro_img" src="~/Content/Images/intro.png" alt="">
+    </div>
+
+
+    <div class="second_c">
+        <h1>About Our Restaurant </h1>
+        <p>
+            People visit restaurants on various occasions. Some like celebrating birthdays there, while others consider these places as the best ones for business meetings.
+            Couples in love also go out on romantic dates there. Many individuals visit restaurants just to have a delicious meal, especially those who don’t like cooking.
+        </p>
+    </div>
+
+    <hr>
+
+
+
+    </div>
+
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,82 @@
+html, body {
+  margin: 0;
+  text-align: center;
+  background-color: #effffb;
+}
+
+hr {
+
+
+  border: 0;
+  height: 2rem;
+  background-image: url(hr.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: 5rem 0 5rem;
+
+}
+
+h1 {
+  font-family: 'Teko', sans-serif;
+  margin: 0;
+  color: #197aad;
+  font-size: 400%;
+  height: 6rem;
+}
+
+p {
+  line-height: 2;
+  font-family: 'Days One', sans-serif;
+  color: #d9455f;
+  font-size: 130%;
+  margin: 0;
+}
+
+h3 {
+  font-family: 'Krona One', sans-serif;
+}
+
+.centered {
+  position: relative;
+  margin: auto;
+  width: 25rem;
+  bottom: 30rem;
+  right: 1rem;
+}
+.cent {
+    position:relative;
+  margin: auto;
+  width: 30rem;
+  bottom: 75rem;
+  left: 6rem;
+}
+
+
+.intro_img {
+
+
+  position: relative;
+  bottom:0;
+right:15rem;
+  width: 14rem;
+  margin: auto;
+
+}
+
+.second_c {
+
+  margin: auto;
+  width: 50%;
+}
+.img{
+    background-size:contain;
+}
+.into_2 {}
+
+.first_c {
+
+  width:auto;
+  height:auto;
+
+}

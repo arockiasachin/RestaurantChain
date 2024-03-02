@@ -1,0 +1,46 @@
+﻿<div>
+    <ul class="nav navbar-nav navbar-right">
+        @if (Session["UserName"] != null)
+        {
+    <li><a>Hello - @Session["UserName"]  </a></li>
+            {
+                if (Session["Type"] == "Customer")
+{ <li>@Html.ActionLink("Logout", "Logout", "CustomerLogOn")</li>}
+else if (Session["Type"] == ("Admin"))
+{ <li>@Html.ActionLink("Logout", "Logout", "AdminLogOn")</li>}
+}
+}
+            else
+            {
+    <li>@Html.ActionLink("Admin Login", "Login", "AdminLogOn")</li>
+                    <li>@Html.ActionLink("User Login", "Login", "CustomerLogOn")</li>
+}
+    </ul>
+</div>
+<div>
+    <div>
+    <ul class="nav  navbar-nav navbar-dark ">
+        @if (Session["Type"] == "Customer")
+        {
+
+            
+        
+        
+            <li>@Html.ActionLink("Search Restaurant", "RestaurantIndex", "CustomerViews")</li>
+            <li>@Html.ActionLink("Search Menus", "Index", "CustomerViews")</li>
+            <li>@Html.ActionLink("View Cart", "Index1", "CustomerViews")</li>
+            <li>@Html.ActionLink("View Older Orders", "OldOrders", "CustomerViews")</li>
+        
+        }
+   
+        else if (Session["Type"] == ("Admin"))
+        {
+
+        <li>@Html.ActionLink("Home", "AdminIndex", "AdminHome")</li>
+        <li>@Html.ActionLink("Restaurant Database", "Index", "Hotels")</li>
+        <li>@Html.ActionLink("Menus Database", "Index", "Menus")</li>
+        }
+        </div>
+    
+    </ul>
+</div>

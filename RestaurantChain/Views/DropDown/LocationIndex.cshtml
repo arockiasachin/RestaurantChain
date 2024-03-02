@@ -1,0 +1,42 @@
+﻿@model IEnumerable<RestaurantChain.Models.Location>
+
+@{
+    ViewBag.Title = "LocationIndex";
+}
+
+<h2>Location Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Restaurant Branch", "LocationCreate") ||
+    
+    @Html.ActionLink("Back to Hotel Database", "Index","Hotels")
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantBranch)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestaurantBranch)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "LocationEdit", new { id = item.LocationId }) |
+                @Html.ActionLink("Delete", "LocationDelete", new { id = item.LocationId })
+            </td>
+        </tr>
+    }
+
+</table>

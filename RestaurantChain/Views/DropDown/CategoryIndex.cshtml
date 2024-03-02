@@ -1,0 +1,34 @@
+﻿@model IEnumerable<RestaurantChain.Models.Category>
+
+@{
+    ViewBag.Title = "CategoryIndex";
+}
+
+<h2>Category Index</h2>
+
+<p>
+    @Html.ActionLink("New Category Entry", "CategoryCreate") ||
+    @Html.ActionLink("Back to Menus", "Create","Menus")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "CategoryEdit", new { id = item.CategoryId }) |
+                @Html.ActionLink("Delete", "CategoryDelete", new { id = item.CategoryId })
+            </td>
+        </tr>
+    }
+
+</table>

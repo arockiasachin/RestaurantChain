@@ -1,0 +1,128 @@
+﻿@model  RestaurantChain.ViewModels.Filters
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    button a {
+        color: white;
+        text-decoration: none;
+    }
+
+    button a:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+    .button {
+        padding: 15px 32px;
+    }
+</style>
+
+<p class="text-right">
+    <br />
+    <br />
+    <h2 class="text-center">Restaurant Database</h2>
+
+    <br />
+    <br />
+    @using (Html.BeginForm("Index", "Hotels", FormMethod.Get))
+    {
+        <div class="container-fluid input-group form-group d-flex justify-content-center ">
+            <input type="text" id="Search" placeholder="Search" class="form-control" />
+        </div>
+    }
+    <br />
+    <br />
+    <div class="container-fluid">
+        <div class="col-md-2">
+            <div>
+
+            </div>
+            <h4>Filter by Category</h4>
+            <div class="list-group">
+                @Html.ActionLink("All", "Index", null, new { @class = Request["Location"] == null ? "list-group-item list-group-item-action list-group-item-danger" : "list-group-item" })
+                @foreach (var cat in Model.Locations)
+                {
+                    @Html.ActionLink(cat.City, "Index", new { Location = cat.City }, new { @class = Request["Location"] == cat.City ? "list-group-item list-group-item-action list-group-item-danger" : "list-group-item" })}
+            </div>
+        </div>
+        <div class="col-md-10 ">
+            <table class="table table-hover bg-danger  table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayName("RestaurantName")
+                        </th>
+                        <th>
+                            @Html.DisplayName("RestaurantBranch")
+                        </th>
+                        <th>
+                            @Html.DisplayName("City")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Phone")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Email")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Address")
+                        </th>
+                        <th> <button class="btn btn-danger button"> @Html.ActionLink("Create", "Create", "Hotels")</button></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model.Litems)
+                {
+                    <tr class="Search">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestaurantName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RestaurantBranch)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+
+                            <button class="btn btn-danger">@Html.ActionLink("Edit", "Edit", new { id = item.RestaurantId }) </button>
+                            <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.RestaurantId })</button>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function Contains(text_one, text_two) {
+                if (text_one.indexOf(text_two) != -1)
+                    return true;
+            }
+            $("#Search").keyup(function () {
+                var searchText = $("#Search").val().toLowerCase();
+                $(".Search").each(function () {
+                    if (!Contains($(this).text().toLowerCase(), searchText)) {
+                        $(this).hide();
+                    }
+                    else {
+                        $(this).show();
+                    }
+                });
+
+            });
+        });
+
+    </script>

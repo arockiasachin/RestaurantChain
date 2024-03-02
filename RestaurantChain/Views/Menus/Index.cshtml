@@ -1,0 +1,148 @@
+﻿@model RestaurantChain.ViewModels.Filters
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<html style="margin-left:0; margin-right:0;">
+<head>
+    <title>
+    </title>
+    <style>
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: white;
+            }
+
+        .body-content {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .container {
+            margin-left: 0;
+            margin-right: 0;
+            max-width: none;
+        }
+
+        .hoverDiv {
+            background: #fff;
+            border: solid thin whitesmoke;
+        }
+
+        p {
+            display: inline;
+            font: 300px;
+        }
+
+        b {
+            color: crimson;
+        }
+
+
+        .hoverDiv:hover {
+            border-color: #F08080;
+            background: #ffdad9;
+        }
+    </style>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function Contains(text_one, text_two) {
+                if (text_one.indexOf(text_two) != -1)
+                    return true;
+            }
+            $("#Search").keyup(function () {
+                var searchText = $("#Search").val().toLowerCase();
+                $(".Search").each(function () {
+                    if (!Contains($(this).text().toLowerCase(), searchText)) {
+                        $(this).hide();
+                    }
+                    else {
+                        $(this).show();
+                    }
+                });
+
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <br /><br />
+    <h2 class="text-center">Menu Database </h2>
+    <br /><br />
+    <div class="container-fluid input-group form-group d-flex justify-content-center ">
+        <input type="text" id="Search" placeholder="Search" class="form-control" />
+    </div>
+    <div class="container-fluid">
+        <br />                    <br />
+
+        <div class="col-md-2 pull-left">
+            <button class="btn btn-danger">@Html.ActionLink("Create New", "Create")</button>
+            <h4>Filter by Category</h4>
+            <div class="list-group ">
+                @Html.ActionLink("All", "Index", null, new { @class = Request["Category"] == null ? "list-group-item list-group-item-action list-group-item-danger" : "list-group-item" })
+                @foreach (var cat in Model.Categories)
+                {
+                    @Html.ActionLink(cat.CategoryName, "Index", new { Category = cat.CategoryName }, new { @class = Request["Category"] == cat.CategoryName ? "list-group-item list-group-item-action list-group-item-danger" : "list-group-item" })
+                }
+            </div>
+        </div>
+        <div class="col-md-10">
+            @foreach (var item in Model.Items)
+            {
+
+                <div class="col-md-3 hoverDiv Search" style=" height:330px;padding:10px;margin:10px; ">
+                    <div class="col-md-12">
+                        <img class="img-fluid" hoverDiv style="height:125px;margin:auto;" src="~/Content/Images/@item.MenuImage" />
+                    </div>
+                    <div class="col-md-12">
+                        <br />
+                    </div>
+                    <div class="col-md-6">
+
+                        <p><b>Item</b></p>
+                    </div>
+                    <div class="col-md-6">@Html.DisplayFor(modelItem => item.Item)</div>
+                    <div class="col-md-6">
+
+                        <p><b>Category</b></p>
+                    </div>
+                    <div class="col-md-6"> @Html.DisplayFor(modelItem => item.Category)</div>
+                 
+                    <div class="col-md-6">
+
+                        <p><b>Price</b></p>
+                    </div>
+                    <div class="col-md-6">@Html.DisplayFor(modelItem => item.Price)</div>
+                    <div class="col-md-6">
+
+                        <p><b>Restaurant</b></p>
+                    </div>
+                    <div class="col-md-6">
+
+                        @Html.DisplayFor(modelItem => item.Hotel.RestaurantName)
+                    </div>
+
+                    <div class="col-md-12">
+                        <br />
+
+                        <button class="btn btn-danger">@Html.ActionLink("Edit", "Edit", new { id = item.ItemId })</button>
+                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                        <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.ItemId })</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

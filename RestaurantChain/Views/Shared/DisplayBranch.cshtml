@@ -1,0 +1,9 @@
+﻿@model RestaurantChain.Models.Location
+<option value="">Select Branch</option>
+@if (ViewBag.Branch != null)
+{
+    foreach (var item in ViewBag.Branch)
+    {
+        <option value="@item.Value">@item.Text </option>
+    }
+}

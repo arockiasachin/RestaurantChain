@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "AdminIndex";
+}
+
+<h2>AdminIndex</h2>
+<h2><br /></h2>
+<style>
+    body {
+        background-color: #F0F0F0;
+    }
+
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+    .plan-box {
+        margin: 0px;
+        border: 1px solid #D9544F;
+        border-radius: 2px;
+    }
+
+    .plan-danger {
+        background-color: #D9544F;
+    }
+
+    .section1 {
+        padding: 15px 0px 15px 0px;
+        color: #fff;
+    }
+
+    .section2 {
+        background-color: #BCBCBC;
+        padding: 15px 0px 15px 0px;
+    }
+
+        .section2 h3 {
+            font-size: 30px;
+            color: #757A74;
+            font-weight: bold;
+        }
+
+
+    .section4 {
+        background-color: #F5F5F5;
+        padding: 10px;
+    }
+
+        .section4 button {
+            font-size: 20px;
+        }
+
+    .plan-warning {
+        border: 1px solid #EFAD4D;
+        background-color: #EFAD4D;
+    }
+
+    .plan-success {
+        border: 1px solid #5BB85D;
+        background-color: #5BB85D;
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container section-plan">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="row plan-box plan-danger text-center">
+                    <div class="col-md-12 section1">
+                        <h2>Basic Plan</h2>
+                    </div>
+                    <div class="col-md-12 section2">
+                        <h3>Restaurant Database</h3>
+                    </div>
+
+                    <div class="col-md-12 section4">
+                        <button class="btn btn-danger btn-block" onclick="location.href='@Url.Action("Index", "Hotels")';return false;">Restaurant Index</button>
+                    </div>
+
+                    <div class="col-md-12 section4">
+                        <button class="btn btn-danger btn-block" onclick="location.href='@Url.Action("Create", "Hotels")';return false;">Create New Entry</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-4 col-xs-12">
+
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="row plan-box plan-danger text-center">
+                    <div class="col-md-12 section1">
+                        <h2>Basic Plan</h2>
+                    </div>
+                    <div class="col-md-12 section2">
+                        <h3>Menus Database</h3>
+                    </div>
+
+                    <div class="col-md-12 section4">
+                        <button class="btn btn-danger btn-block" onclick="location.href='@Url.Action("Index", "Menus")';return false;">Menus Index</button>
+                    </div>
+                    <div class="col-md-12 section4">
+                        <button class="btn btn-danger btn-block" onclick="location.href='@Url.Action("Create", "Menus")';return false;">Create New Entry</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

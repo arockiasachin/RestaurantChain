@@ -1,0 +1,66 @@
+﻿@model RestaurantChain.Models.Order
+
+@{
+    ViewBag.Title = "OrderIndex";
+}
+<style>
+    dt {
+        text-align:left;
+    }
+    dd {
+        text-align: left;
+    }
+    dl {
+        text-align: left;
+    }
+</style>
+<h2 style="text-align:center">Order Summary</h2>
+<div class="col-lg-4" ></div>
+<div class="col-lg-7">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BillId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BillId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            Rs.@Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentMethod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to home", "Index")
+</p>
